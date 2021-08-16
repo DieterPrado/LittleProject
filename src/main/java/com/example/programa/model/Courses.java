@@ -1,10 +1,11 @@
 package com.example.programa.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "courses")
@@ -22,6 +23,10 @@ public class Courses {
 
     @Column(name = "estimated_date")
     private LocalDate estimatedDate;
+
+    @OneToMany(mappedBy = "courses", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<AcademicToCourse> academicInCourses;
 
     public Courses() {
     }
@@ -56,5 +61,21 @@ public class Courses {
 
     public void setEstimatedDate(LocalDate estimatedDate) {
         this.estimatedDate = estimatedDate;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public List<AcademicToCourse> getAcademicInCourses() {
+        return academicInCourses;
+    }
+
+    public void setAcademicInCourses(List<AcademicToCourse> academicInCourses) {
+        this.academicInCourses = academicInCourses;
     }
 }

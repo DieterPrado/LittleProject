@@ -1,4 +1,4 @@
-package com.example.programa.view;
+package com.example.programa.controller;
 
 import java.time.LocalDate;
 

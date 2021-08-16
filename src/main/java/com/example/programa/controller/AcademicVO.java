@@ -1,4 +1,4 @@
-package com.example.programa.view;
+package com.example.programa.controller;
 
 import javax.persistence.Column;
 import java.time.LocalDate;

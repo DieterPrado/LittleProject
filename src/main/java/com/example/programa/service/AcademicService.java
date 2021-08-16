@@ -1,7 +1,7 @@
-package com.example.programa.controller;
+package com.example.programa.service;
 
 import com.example.programa.model.Academic;
-import com.example.programa.model.repository.AcademicRepository;
+import com.example.programa.repository.AcademicRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

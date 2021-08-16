@@ -1,6 +1,6 @@
-package com.example.programa.view;
+package com.example.programa.controller;
 
-import com.example.programa.controller.CourseService;
+import com.example.programa.service.CourseService;
 import com.example.programa.model.Courses;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

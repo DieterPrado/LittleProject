@@ -1,17 +1,14 @@
-package com.example.programa.view;
+package com.example.programa.controller;
 
-import com.example.programa.controller.AcademicService;
+import com.example.programa.service.AcademicService;
 import com.example.programa.model.Academic;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.*;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -74,7 +71,10 @@ public class AcademicResource {
 
     }
 
-
+    @GetMapping("/test")
+    public ResponseEntity<String> test(){
+        return new ResponseEntity<>("Hola", HttpStatus.OK);
+    }
 
 
 }
