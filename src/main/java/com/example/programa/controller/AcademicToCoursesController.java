@@ -1,9 +1,6 @@
 package com.example.programa.controller;
 
-import com.example.programa.model.Academic;
-import com.example.programa.model.AcademicToCourse;
-import com.example.programa.model.AcademicToCoursePK;
-import com.example.programa.model.Courses;
+import com.example.programa.model.*;
 import com.example.programa.service.AcademicService;
 import com.example.programa.service.AcademicToRepositoryService;
 import com.example.programa.service.CourseService;
@@ -43,8 +40,12 @@ public class AcademicToCoursesController {
         AcademicToCoursePK academicToCoursePK = new AcademicToCoursePK(academicId, courseId);
         for(AcademicToCourse searching:academic.getAcademicCourses()){
             if (searching.getAcademicToCoursePK().equals(academicToCoursePK)){
-                searching.setStatus(status);
-                return new ResponseEntity<>(academicToRepositoryService.save(searching), HttpStatus.OK);
+                try {
+                    searching.setStatus(CourseStatus.valueOf(status).getStatus());
+                    return new ResponseEntity<>(academicToRepositoryService.save(searching), HttpStatus.OK);
+                }catch (Exception e){
+                    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+                }
             }
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
